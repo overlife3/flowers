@@ -1,0 +1,43 @@
+@import "../../scss/mixins.scss";
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+.select {
+  width: 250px;
+}
+
+.field {
+  input {
+    height: var(--input-height);
+    box-sizing: border-box;
+    padding: 0 16px;
+    @include input;
+  }
+  &_title {
+    @include field-title;
+    margin-bottom: 10px;
+  }
+}
+.price {
+  display: flex;
+  // flex-direction: column;
+  gap: 10px;
+
+  input {
+    width: 100px;
+  }
+
+  &_group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &_title {
+      font-size: 14px;
+      color: var(--gray-color);
+    }
+  }
+}

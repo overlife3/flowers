@@ -1,0 +1,68 @@
+.section {
+  background: no-repeat center center;
+  background-size: cover;
+  background-image: url("../../assets/images/contacts.jpg");
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.block {
+  display: flex;
+  flex-direction: column;
+  width: 590px;
+  height: 360px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.logo {
+  flex-grow: 1;
+  padding-top: 30px;
+}
+
+.logo_svg {
+  // увеличиваю в два раза
+  width: 200px;
+  svg {
+    width: 80px;
+  }
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+.words {
+  font-size: 20px;
+  margin-bottom: 20px;
+  background-color: #ff9973;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.svg {
+  svg {
+    width: 30px;
+    height: auto;
+    fill: var(--orange-color);
+    &:hover {
+      fill: var(--orange-2-color);
+    }
+  }
+  cursor: pointer;
+}
+
+.svg + .svg {
+  margin-left: 10px;
+}
+
+.phone {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}

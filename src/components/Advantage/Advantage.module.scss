@@ -1,0 +1,38 @@
+.advantage {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+.circle {
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--orange-3-color);
+  .icon {
+    width: 60px;
+    height: auto;
+    svg {
+      transform: rotate(90deg);
+      fill: var(--gray-color);
+    }
+  }
+}
+
+.name {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: start;
+  line-height: 1.55;
+}
+
+.description {
+  font-size: 22px;
+  text-align: start;
+  line-height: 1.55;
+}

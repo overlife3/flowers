@@ -1,0 +1,23 @@
+@import "../../scss/mixins.scss";
+.container {
+}
+
+.list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.more {
+  text-align: center;
+
+  button {
+    @include orange-button;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

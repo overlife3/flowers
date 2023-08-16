@@ -1,0 +1,29 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100px;
+  cursor: pointer;
+  p {
+    margin: 0;
+  }
+  font-size: 10px;
+}
+
+.svg {
+  svg {
+    width: 40px;
+    fill: var(--orange-color);
+  }
+}
+.text {
+  color: var(--orange-color);
+}
+
+.company {
+  font-size: 3em;
+}
+
+.slogan {
+  font-size: 1.2em;
+}

@@ -1,0 +1,58 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 40px var(--safety-margin);
+  box-sizing: border-box;
+}
+
+.svg {
+  svg {
+    width: 30px;
+    height: auto;
+    fill: var(--orange-color);
+    &:hover {
+      fill: var(--orange-2-color);
+    }
+  }
+  cursor: pointer;
+}
+
+.contacts {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.phone {
+  color: white;
+  font-size: 18px;
+}
+
+.links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  display: flex;
+  gap: 20px;
+  color: white;
+  font-size: 18px;
+  a {
+    cursor: pointer;
+    &:hover {
+      color: var(--orange-2-color);
+    }
+  }
+}

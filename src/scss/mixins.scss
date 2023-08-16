@@ -1,0 +1,29 @@
+@mixin section-container {
+  padding: 0 var(--safety-margin);
+}
+
+@mixin orange-button {
+  border-radius: 6px;
+  border: none;
+  background-color: var(--orange-color);
+  cursor: pointer;
+  color: white;
+  &:hover {
+    background-color: var(--orange-2-color);
+  }
+}
+
+@mixin input {
+  border: 1px solid var(--red-color);
+  border-radius: 3px;
+  &:hover,
+  &:focus {
+    box-shadow: var(--box-shadow-1);
+  }
+}
+
+@mixin field-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-color);
+}

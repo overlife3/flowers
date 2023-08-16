@@ -1,0 +1,70 @@
+@import "../../../scss/mixins.scss";
+
+.field {
+  .field_title {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 8px;
+  }
+}
+
+.placeholder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 16px;
+
+  .svg {
+    svg {
+      width: 20px;
+      height: auto;
+      fill: var(--orange-color);
+    }
+  }
+  @include input;
+}
+
+.options_list_container {
+  position: relative;
+}
+
+.options_list {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: var(--gray-color);
+  padding: 8px;
+  width: 100%;
+  background-color: var(--orange-3-color);
+}
+
+.select.open {
+  .options_list {
+    visibility: visible;
+  }
+
+  .placeholder {
+    box-shadow: var(--box-shadow-1);
+  }
+}
+.option {
+  position: relative;
+  text-align: start;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  & + .option {
+    margin-top: 10px;
+  }
+  &:hover {
+    background-color: bisque;
+  }
+}

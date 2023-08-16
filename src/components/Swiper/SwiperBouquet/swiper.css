@@ -1,0 +1,69 @@
+.mySwiper .swiper-slide {
+  position: relative;
+}
+
+.mySwiper .swiper-slide:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.mySwiper .swiper-slide-thumb-active:after {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.custom-next-button,
+.custom-prev-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.custom-next-button.swiper-button-disabled,
+.custom-prev-button.swiper-button-disabled {
+  visibility: hidden;
+}
+.custom-next-button:hover,
+.custom-prev-button:hover {
+  opacity: 1;
+}
+
+.custom-next-button {
+  right: 10px;
+}
+
+.custom-prev-button {
+  left: 10px;
+}
+
+.custom-next-button svg,
+.custom-prev-button svg {
+  width: 20px;
+  height: 20px;
+  fill: black;
+  margin-top: 2px;
+}
+
+.custom-next-button svg {
+  transform: rotate(-90deg);
+  margin-left: 4px;
+}
+
+.custom-prev-button svg {
+  transform: rotate(90deg);
+  margin-right: 4px;
+}

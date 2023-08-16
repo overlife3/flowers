@@ -1,0 +1,12 @@
+@import "../../../scss/mixins.scss";
+.container {
+  width: min-content;
+}
+
+.input {
+  @include input;
+}
+
+.button {
+  background-color: transparent !important;
+}
