@@ -52,6 +52,7 @@
 }
 
 .photo_wrapper {
+  user-select: none;
   img {
     object-fit: cover;
     width: 100%;

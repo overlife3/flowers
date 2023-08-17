@@ -4,6 +4,7 @@ import SvgSelector from "../../SvgSelector/SvgSelector";
 import style from "./PopupBouquet.module.scss";
 import { bouquetImages } from "../../../MOCK/MOCK";
 import SwiperBouquet from "../../Swiper/SwiperBouquet/SwiperBouquet";
+import PopupWrapper from "../PopupWrapper/PopupWrapper";
 type Props = {
   onClose: () => void;
   isOpened: boolean;
@@ -17,8 +18,8 @@ function Popup({ onClose, isOpened }: Props) {
   if (!isOpened) return null;
 
   return (
-    <div className={style.container}>
-      <div className={style.body} ref={containerRef}>
+    <PopupWrapper onClose={onClose} isOpened={isOpened}>
+      <div className={style.body}>
         <button className={style.close} onClick={onClose}>
           <SvgSelector name="cross" />
         </button>
@@ -42,7 +43,7 @@ function Popup({ onClose, isOpened }: Props) {
           </div>
         </div>
       </div>
-    </div>
+    </PopupWrapper>
   );
 }
 
