@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cross {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--gray-color);
+  border-radius: 50%;
+  cursor: pointer;
+
+  svg {
+    width: 60%;
+    height: 60%;
+    fill: var(--gray-color);
+  }
+
+  transition: all 0.1s;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.image {
+  width: 70px;
+  height: 70px;
+  border-radius: 10%;
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.name {
+  width: 200px;
+  text-align: start;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: lighter;
+  width: 60px;
+}

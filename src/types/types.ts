@@ -16,3 +16,10 @@ export type Advantage = {
   name: string;
   description: string;
 };
+
+export type RadioOptionType = {
+  value: string;
+  title: string;
+};
+
+export type Delivery = "pickup" | "courier";

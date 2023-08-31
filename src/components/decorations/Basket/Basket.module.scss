@@ -1,22 +1,21 @@
 @import "../../../scss/mixins.scss";
 
-.move_up {
+.basket {
   @include fixed-btn;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 10px;
-  right: 45px;
-  width: 50px;
-  height: 50px;
+  bottom: 80px;
+  right: 15px;
+  width: 55px;
+  height: 55px;
   background-color: var(--orange-2-color);
 
   svg {
-    width: 25px;
-    height: 25px;
-    transform: rotate(180deg);
+    width: 70%;
+    height: auto;
     fill: white;
-    transition: fill 0.2s;
+    transition: all 0.2s;
   }
 
   &:hover {

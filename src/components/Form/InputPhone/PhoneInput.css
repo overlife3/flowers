@@ -1,9 +1,12 @@
 .react-tel-input .form-control {
   border: 1px solid var(--red-color);
-  width: 200px;
+  width: 220px;
   height: 40px;
 }
 
+.react-tel-input .form-control {
+  font-size: 18px !important;
+}
 .react-tel-input .flag-dropdown {
   border: none;
 }

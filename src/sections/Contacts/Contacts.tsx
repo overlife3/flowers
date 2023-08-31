@@ -15,14 +15,14 @@ function Contacts() {
           <p className={style.phone}>+7 (965) 689-69-90</p>
           <div className={style.links}>
             {" "}
-            <a className={style.svg}>
-              <SvgSelector name="inst" />
+            <a className={style.link}>
+              <SvgSelector name="inst" cn={style.svg} />
             </a>
-            <a className={style.svg}>
-              <SvgSelector name="whats" />
+            <a className={style.link}>
+              <SvgSelector name="whats" cn={style.svg} />
             </a>
-            <a className={style.svg}>
-              <SvgSelector name="vk" />
+            <a className={style.link}>
+              <SvgSelector name="vk" cn={style.svg} />
             </a>
           </div>
         </div>

@@ -1,0 +1,21 @@
+.to_back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: lighter;
+  font-size: 24px;
+  width: min-content;
+  cursor: pointer;
+  svg {
+    width: 24px;
+    height: auto;
+    transform: rotate(90deg);
+  }
+
+  &:hover {
+    color: var(--orange-color);
+    svg {
+      fill: var(--orange-color);
+    }
+  }
+}

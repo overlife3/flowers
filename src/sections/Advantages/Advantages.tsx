@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import Advantage from "../../components/Advantage/Advantage";
+import Advantage from "../../components/Card/Advantage/Advantage";
 import style from "./Advantages.module.scss";
 
 const Advantages = forwardRef<any>((props, ref) => (

@@ -44,17 +44,25 @@
   border-radius: 10px;
   padding: 10px;
 }
-
-.svg {
-  svg {
-    width: 30px;
-    height: auto;
-    fill: var(--orange-color);
-    &:hover {
-      fill: var(--orange-2-color);
+.links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  .link {
+    .svg {
+      width: auto;
+      height: auto;
+      svg {
+        width: 30px;
+        height: auto;
+        fill: var(--orange-color);
+        &:hover {
+          fill: var(--orange-2-color);
+        }
+      }
+      cursor: pointer;
     }
   }
-  cursor: pointer;
 }
 
 .svg + .svg {

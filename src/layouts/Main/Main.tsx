@@ -9,6 +9,7 @@ import AdvantagesSection from "../../sections/Advantages/Advantages";
 import RefsContext from "../../context/refs";
 import Header from "../Header/Header";
 import MoveUp from "../../components/decorations/MoveUp/MoveUp";
+import Basket from "../../components/decorations/Basket/Basket";
 
 const Main = () => {
   const catalogRef = useRef(null);
@@ -33,6 +34,7 @@ const Main = () => {
       {/* <AttractSection /> */}
       <Contacts />
       <MoveUp />
+      <Basket />
     </RefsContext.Provider>
   );
 };

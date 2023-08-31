@@ -1,3 +1,4 @@
+@import "./scss/mixins.scss";
 .App {
   text-align: center;
 }
@@ -35,4 +36,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+input {
+  font: var(--font);
+}
+
+.rw-state-focus .rw-widget-picker {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rw-widget-picker .rw-picker-btn {
+  border: none !important;
+}
+.rw-widget-input {
+  box-shadow: none !important;
+}
+.rw-time-input.rw-widget-input.rw-widget {
+  width: min-content;
+  @include input;
 }

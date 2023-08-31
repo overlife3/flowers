@@ -1,5 +1,5 @@
 import React from "react";
-import SvgSelector from "../SvgSelector/SvgSelector";
+import SvgSelector from "../../SvgSelector/SvgSelector";
 import style from "./Advantage.module.scss";
 
 type AdvantageType = {

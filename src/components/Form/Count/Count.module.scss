@@ -1,0 +1,65 @@
+.count {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100px;
+  user-select: none;
+}
+
+.minus,
+.plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--gray-color);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &.isHidden {
+    visibility: hidden;
+  }
+
+  transition: all 0.1s;
+}
+
+.minus {
+  svg {
+    &:hover {
+      stroke: black;
+    }
+    fill: none;
+    stroke: var(--gray-color);
+    stroke-width: 16;
+    stroke-miterlimit: 10;
+    width: 14px;
+    height: 14px;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.plus {
+  transform: rotate(45deg);
+  svg {
+    fill: var(--gray-color);
+    width: 6px;
+    height: 6px;
+    &:hover {
+      fill: black;
+    }
+  }
+  &:active {
+    transform: scale(0.9) rotate(45deg);
+  }
+}
+.value {
+  text-align: center;
+
+  font-size: 18px;
+  width: 20px;
+  font-weight: lighter;
+}
