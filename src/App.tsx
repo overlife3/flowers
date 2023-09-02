@@ -7,6 +7,8 @@ import Footer from "./layouts/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import Test from "./components/Test";
 import Basket from "./pages/Basket";
+import AdminAuth from "./pages/AdminAuth/AdminAuth";
+import Admin from "./pages/Admin/Admin";
 function App() {
   return (
     <div className="App">
@@ -19,7 +21,12 @@ function App() {
             </>
           }
         />
-        <Route path="/admin" element={<p>Admin</p>} />
+        <Route path="/admin/auth" element={<AdminAuth />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/add-type" element={<p>Add type</p>} />
+        <Route path="/admin/add-bouquet" element={<p>Add bouquet</p>} />
+        <Route path="/admin/remove-type" element={<p>Remove type</p>} />
+        <Route path="/admin/remove-bouquet" element={<p>Remove bouquet</p>} />
         <Route path="/test" element={<Test />} />
         <Route path="/politics" element={<p>Политика конфиденциальности</p>} />
         <Route path="/basket" element={<Basket />} />

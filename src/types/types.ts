@@ -23,3 +23,7 @@ export type RadioOptionType = {
 };
 
 export type Delivery = "pickup" | "courier";
+
+export type Auth = {
+  password: string;
+};
