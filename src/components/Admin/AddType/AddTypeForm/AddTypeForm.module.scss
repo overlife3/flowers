@@ -1,0 +1,51 @@
+.form {
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: lighter;
+  margin-bottom: 25px;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+  input {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  max-width: 200px;
+  background-color: var(--gray-color);
+  font-size: 18px;
+  font-weight: lighter;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  transition: all 0.2s;
+  &:hover {
+    background-color: var(--orange-2-color);
+  }
+}
+
+.to_back {
+  gap: 5px;
+  font-size: 18px;
+  svg {
+    width: 18px;
+  }
+}

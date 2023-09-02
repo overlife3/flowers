@@ -9,6 +9,7 @@ import Test from "./components/Test";
 import Basket from "./pages/Basket";
 import AdminAuth from "./pages/AdminAuth/AdminAuth";
 import Admin from "./pages/Admin/Admin";
+import AddType from "./components/Admin/AddType/AddType";
 function App() {
   return (
     <div className="App">
@@ -23,7 +24,7 @@ function App() {
         />
         <Route path="/admin/auth" element={<AdminAuth />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/add-type" element={<p>Add type</p>} />
+        <Route path="/admin/add-type" element={<AddType />} />
         <Route path="/admin/add-bouquet" element={<p>Add bouquet</p>} />
         <Route path="/admin/remove-type" element={<p>Remove type</p>} />
         <Route path="/admin/remove-bouquet" element={<p>Remove bouquet</p>} />
