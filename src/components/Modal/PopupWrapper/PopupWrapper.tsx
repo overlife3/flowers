@@ -13,6 +13,21 @@ function PopupWrapper({ onClose, isOpened, children }: Props) {
 
   useOutsideClick(bodyRef, onClose);
 
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (body) {
+      body.style.overflow = "hidden";
+      body.style.paddingRight = "15px";
+    }
+
+    return () => {
+      if (body) {
+        body.style.overflow = "auto";
+        body.style.paddingRight = "0";
+      }
+    };
+  }, []);
+
   if (!isOpened) return null;
 
   return (

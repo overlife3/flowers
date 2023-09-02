@@ -21,7 +21,7 @@ function OrderedBouquet({ image, count, name, price, cn }: Props) {
       <Count initialValue={count} maxValue={5} />
       <p className={style.price}>{price} р.</p>
       <div className={style.cross}>
-        <SvgSelector name="cross" />
+        <SvgSelector name="cross" cn={style.svg_cross} />
       </div>
     </div>
   );
