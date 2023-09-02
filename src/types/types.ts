@@ -27,3 +27,9 @@ export type Delivery = "pickup" | "courier";
 export type Auth = {
   password: string;
 };
+
+export type FileData = {
+  src: string;
+  name: string;
+  size: number;
+};

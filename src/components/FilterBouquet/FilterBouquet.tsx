@@ -1,5 +1,6 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { createOptionListFromTypesList } from "../../helpers/createOptionListFromTypesList";
 import { TypeBouquet } from "../../types/types";
 import InputNum from "../Form/InputNum/InputNum";
 import Select, { IOptionSelect } from "../Form/Select/Select";
@@ -17,19 +18,6 @@ type Props = {
   lowerPriceDefault?: string;
   upperPriceDefault?: string;
   cn?: string;
-};
-
-const createOptionListFromTypesList = (
-  list: TypeBouquet[]
-): IOptionSelect[] => {
-  const res: IOptionSelect[] = [];
-  for (let item of list) {
-    res.push({
-      id: item.id,
-      value: item.value,
-    });
-  }
-  return res;
 };
 
 function FilterBouquet({

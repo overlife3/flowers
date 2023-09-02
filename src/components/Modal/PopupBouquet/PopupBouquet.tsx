@@ -10,7 +10,7 @@ type Props = {
   isOpened: boolean;
 };
 
-function Popup({ onClose, isOpened }: Props) {
+function PopupBouquet({ onClose, isOpened }: Props) {
   const containerRef = useRef(null);
 
   useOutsideClick(containerRef, onClose);
@@ -47,4 +47,4 @@ function Popup({ onClose, isOpened }: Props) {
   );
 }
 
-export default Popup;
+export default PopupBouquet;

@@ -1,13 +1,13 @@
 import React from "react";
-import AddBouquetContainer from "../../../containers/Admin/AddBouquetContainer";
+import RemoveTypeContainers from "../../../containers/Admin/RemoveTypeContainers";
 import OverlayContainer from "../../decorations/OverlayContainer/OverlayContainer";
 
-function AddBouquet() {
+function RemoveType() {
   return (
     <OverlayContainer>
-      <AddBouquetContainer />
+      <RemoveTypeContainers />
     </OverlayContainer>
   );
 }
 
-export default AddBouquet;
+export default RemoveType;

@@ -1,5 +1,6 @@
 import classnames from "classnames";
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
+import useOutsideClick from "../../../hooks/useOutsideClick";
 import SvgSelector from "../../SvgSelector/SvgSelector";
 import style from "./Select.module.scss";
 
@@ -25,11 +26,15 @@ const Select: FC<Props> = ({
   onChange,
   label,
 }) => {
+  const selectRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
   };
+  useOutsideClick(selectRef, () => {
+    setIsOpen(false);
+  });
 
   const selectClassName = classnames(style.select, { [style.open]: isOpen });
 
@@ -39,7 +44,7 @@ const Select: FC<Props> = ({
   };
 
   return (
-    <div className={style.field + " " + cn}>
+    <div className={style.field + " " + cn} ref={selectRef}>
       {label ? <p className={style.field_title}>{label}</p> : null}
       <div className={selectClassName}>
         <div className={style.placeholder} onClick={handleOpen}>

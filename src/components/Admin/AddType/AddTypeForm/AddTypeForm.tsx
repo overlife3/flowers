@@ -22,7 +22,7 @@ function AddTypeForm({ onSubmit }: Props) {
   });
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-      <p className={style.title}>Введите название нового вида букетов</p>
+      <p className={style.title}>Добавить вид букета</p>
       <label className={style.field}>
         Название:
         <input type="text" {...register("type")} />

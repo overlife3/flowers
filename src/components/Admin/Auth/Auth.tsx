@@ -23,7 +23,7 @@ function Auth({ onSubmit }: Props) {
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
       <p className={style.title}>
-        Для входа в страницу администратора
+        Для входа на страницу администратора
         <br></br>
         <span className={style.bold}>Введите пароль</span>
       </p>

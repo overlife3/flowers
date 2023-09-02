@@ -26,15 +26,15 @@ const Main = () => {
       }}
     >
       <Header />
-      <MainSection catalogRef={catalogRef} />
+      {/* <MainSection catalogRef={catalogRef} />
       <CatalogSection ref={catalogRef} />
       <MakeSection ref={makeRef} />
       <MasterSection ref={masterRef} />
-      <AdvantagesSection ref={advantagesRef} />
+      <AdvantagesSection ref={advantagesRef} /> */}
       {/* <AttractSection /> */}
-      <Contacts />
+      {/* <Contacts />
       <MoveUp />
-      <Basket />
+      <Basket /> */}
     </RefsContext.Provider>
   );
 };

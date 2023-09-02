@@ -1,0 +1,30 @@
+.input_file {
+  display: inline-block;
+  position: relative;
+  font-weight: lighter;
+  font-size: 18px;
+  color: white;
+  text-align: start;
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+  }
+}
+
+.input_file_btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-color);
+  padding: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--orange-2-color);
+  }
+}
