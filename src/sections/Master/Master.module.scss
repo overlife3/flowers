@@ -57,16 +57,19 @@
 .main_photo {
   grid-area: A;
   height: 300px;
+  width: 100%;
 }
 
 .big_photo {
   grid-area: B;
+  width: 100%;
   height: 400px;
 }
 
 .small_photo {
   height: 300px;
   grid-area: C;
+  width: 100%;
 }
 
 @media (max-width: 1280px) {
