@@ -52,3 +52,9 @@
   width: 200px;
   height: 50px;
 }
+
+@media (max-width: 748px) {
+  .text {
+    font-size: 36px;
+  }
+}

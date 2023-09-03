@@ -10,6 +10,7 @@ import RefsContext from "../../context/refs";
 import Header from "../Header/Header";
 import MoveUp from "../../components/decorations/MoveUp/MoveUp";
 import Basket from "../../components/decorations/Basket/Basket";
+import SideNav from "../../components/SideNav/SideNav";
 
 const Main = () => {
   const catalogRef = useRef(null);
@@ -25,12 +26,12 @@ const Main = () => {
         masterRef: masterRef,
       }}
     >
-      <Header />
-      {/* <MainSection catalogRef={catalogRef} />
-      <CatalogSection ref={catalogRef} />
-      <MakeSection ref={makeRef} />
+      {/* <Header /> */}
+      {/* <MainSection catalogRef={catalogRef} /> */}
+      {/* <CatalogSection ref={catalogRef} /> */}
+      {/* <MakeSection ref={makeRef} /> */}
       <MasterSection ref={masterRef} />
-      <AdvantagesSection ref={advantagesRef} /> */}
+      {/* <AdvantagesSection ref={advantagesRef} /> */}
       {/* <AttractSection /> */}
       {/* <Contacts />
       <MoveUp />

@@ -34,6 +34,7 @@ function App() {
         <Route path="/test" element={<Test />} />
         <Route path="/politics" element={<p>Политика конфиденциальности</p>} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/*" element={<p>404</p>} />
       </Routes>
     </div>
   );

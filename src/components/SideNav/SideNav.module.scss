@@ -1,19 +1,22 @@
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  background-color: rgba($color: #000000, $alpha: 0.7);
-}
-
 .container {
-  display: flex;
+  display: none;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  // transform: translateX(350px);
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
   padding: 40px var(--safety-margin);
   box-sizing: border-box;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  width: max-content;
+  z-index: 1;
+}
+
+.container.isOpened {
+  display: flex;
+  // transform: translateX(0);
 }
 
 .svg {
@@ -30,7 +33,7 @@
 
 .contacts {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -40,15 +43,15 @@
 }
 
 .links {
-  position: absolute;
+  flex-direction: column;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
 
   display: flex;
   gap: 20px;
   color: white;
   font-size: 18px;
+  margin-bottom: 40px;
   a {
     cursor: pointer;
     &:hover {
@@ -57,26 +60,8 @@
   }
 }
 
-.burger {
-  display: none;
-}
-
-@media (max-width: 1200px) {
-  .links {
-    gap: 10px;
-  }
-  .contacts {
-    gap: 10px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .links,
-  .contacts {
+@media (min-width: 1024px) {
+  .container.isOpened {
     display: none;
-  }
-
-  .burger {
-    display: flex;
   }
 }

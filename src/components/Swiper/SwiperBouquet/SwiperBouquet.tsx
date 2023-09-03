@@ -47,6 +47,11 @@ function SwiperBouquet({ images }: Props) {
     freeMode: true,
     modules: [FreeMode, Navigation, Thumbs],
     className: "mySwiper",
+    breakpoints: {
+      860: {
+        slidesPerView: 4,
+      },
+    },
   };
 
   return (

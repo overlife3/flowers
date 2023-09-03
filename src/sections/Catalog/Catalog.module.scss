@@ -12,3 +12,9 @@
   font-weight: 600;
   margin-bottom: 30px;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+}

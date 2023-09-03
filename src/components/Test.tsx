@@ -5,6 +5,7 @@ import style from "./Test.module.scss";
 import SwiperBouquet from "./Swiper/SwiperBouquet/SwiperBouquet";
 import PopupOrder from "./Order/Order";
 import Count from "./Form/Count/Count";
+import BurgerMenu from "./decorations/BurgerMenu/BurgerMenu";
 function Test() {
   const [isOpened, setIsOpened] = useState(true);
 
@@ -16,11 +17,7 @@ function Test() {
     setIsOpened(false);
   };
 
-  return (
-    <>
-      <button onClick={onOpen}>Open</button>
-    </>
-  );
+  return <></>;
 }
 
 export default Test;

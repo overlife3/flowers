@@ -1,6 +1,7 @@
 .section {
   max-width: 1258px;
   margin: 0 auto;
+  padding: 0 var(--safety-margin);
 }
 .content {
   display: flex;
@@ -66,4 +67,90 @@
 .small_photo {
   height: 300px;
   grid-area: C;
+}
+
+@media (max-width: 1280px) {
+  .text {
+    width: 450px;
+  }
+
+  .big_photo {
+    height: 425px;
+  }
+
+  .main_photo,
+  .small_photo {
+    height: 360px;
+  }
+}
+@media (max-width: 1024px) {
+  .text_title {
+    font-size: 24px;
+  }
+
+  .text {
+    p:not(.text_title) {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .big_photo {
+    height: 338px;
+  }
+
+  .main_photo,
+  .small_photo {
+    height: 330px;
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .text {
+    width: 600px;
+    box-sizing: border-box;
+  }
+  .big_photo {
+    width: 600px;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 650px) {
+  .text {
+    width: 450px;
+    padding: 30px;
+  }
+
+  .big_photo {
+    width: 450px;
+  }
+}
+
+@media (max-width: 460px) {
+  .text {
+    width: 290px;
+    padding: 20px;
+  }
+
+  .images {
+    grid-template-areas:
+      "A"
+      "C"
+      "B";
+  }
+
+  .big_photo {
+    width: 290px;
+  }
 }
