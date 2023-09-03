@@ -146,7 +146,7 @@ function Order() {
         </label>
         <p className={style.total_amount}>Итоговая сумма: {1000}</p>
         <button type="submit" className={style.submit_btn}>
-          Оформить заказ
+          Заказать
         </button>
         <p className={style.politics}>
           Отправляя заказ, вы соглашаетесь с{" "}
