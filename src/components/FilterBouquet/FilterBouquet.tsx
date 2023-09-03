@@ -59,7 +59,7 @@ function FilterBouquet({
           )}
         />
       </div>
-      <div className={style.field}>
+      <div className={style.field + " " + style.input_name}>
         <p className={style.field_title}>Название</p>
         <input type="text" {...register("name")} />
       </div>

@@ -10,7 +10,11 @@
 .select {
   width: 250px;
 }
-
+.input_name {
+  input {
+    width: 250px;
+  }
+}
 .field {
   input {
     height: var(--input-height);
@@ -40,5 +44,11 @@
       font-size: 14px;
       color: var(--gray-color);
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    justify-content: center;
   }
 }

@@ -36,3 +36,35 @@
   text-align: start;
   line-height: 1.55;
 }
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    .icon {
+      width: 50px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .advantage {
+    gap: 10px;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    .icon {
+      width: 40px;
+    }
+  }
+}
