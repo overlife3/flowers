@@ -1,14 +1,10 @@
 @import "../../scss/mixins.scss";
 
 .section {
-  position: relative;
-  background: no-repeat center center;
-  background-size: cover;
-  background-image: url("../../assets/images/main.jpg");
 }
 
 .backgroundTint {
-  background-color: rgba($color: #000000, $alpha: 0.5);
+  // background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
 .container {
@@ -16,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 40px;
   height: 100vh;
 }
 
@@ -25,7 +22,7 @@
   align-items: center;
   max-width: 450px;
   p {
-    color: white;
+    color: var(--gray-color);
   }
 }
 
@@ -33,7 +30,7 @@
   font-size: 48px;
   margin-bottom: 40px;
   font-weight: 600;
-  color: white;
+  color: var(--gray-color);
 }
 .text_1 {
   font-size: 18px;

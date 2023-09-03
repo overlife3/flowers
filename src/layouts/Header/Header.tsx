@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { useState } from "react";
 import BurgerMenu from "../../components/decorations/BurgerMenu/BurgerMenu";
 import Logo from "../../components/Logo/Logo";
@@ -8,7 +9,9 @@ import style from "./Header.module.scss";
 
 const Header = () => {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
-
+  const headerCn = classNames(style.header, {
+    [style.menuIsVisible]: menuIsVisible,
+  });
   const toggleMenu = () => {
     setMenuIsVisible((prevState) => {
       return !prevState;
@@ -41,7 +44,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={style.header}>
+      <header className={headerCn}>
         <div className={style.container}>
           <Logo />
           <div className={style.links}>
