@@ -53,8 +53,8 @@ function SideNav({ isOpened, onClose }: Props) {
         <a className={style.svg}>
           <SvgSelector name="vk" />
         </a>
-        <span className={style.phone}>+7 (965) 689-69-90</span>
       </div>
+      <span className={style.phone}>+7 (965) 689-69-90</span>
     </div>
   );
 }

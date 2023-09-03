@@ -15,6 +15,7 @@
   z-index: 3;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  box-shadow: var(--box-shadow-2);
 }
 
 .container.isOpened {
@@ -38,6 +39,7 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .phone {

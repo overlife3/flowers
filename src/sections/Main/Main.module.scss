@@ -1,7 +1,6 @@
 @import "../../scss/mixins.scss";
 
 .section {
-  padding-top: 80px;
 }
 
 .backgroundTint {
@@ -13,6 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 60px;
+  box-sizing: border-box;
   gap: 40px;
   height: 100vh;
 }
