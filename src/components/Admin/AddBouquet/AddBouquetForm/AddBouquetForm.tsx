@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { createOptionListFromTypesList } from "../../../../helpers/createOptionListFromTypesList";
-import { TId, TypeBouquet } from "../../../../types/types";
+import { Bouquet, TId, TypeBouquet } from "../../../../types/types";
 import Select from "../../../Form/Select/Select";
 import ToBack from "../../../ToBack/ToBack";
 import InputFiles from "../../../Form/InputFiles/InputFiles";
@@ -11,7 +11,8 @@ import InputNum from "../../../Form/InputNum/InputNum";
 import PopupBouquet from "../../../Modal/PopupBouquet/PopupBouquet";
 type Props = {
   onSubmit: (data: FormState) => void;
-  typesBouquet: TypeBouquet[];
+  types: TypeBouquet[];
+  bouquets: Bouquet[];
 };
 
 type FormState = {
@@ -22,12 +23,13 @@ type FormState = {
   images: File[];
 };
 
-function AddBouquetForm({ onSubmit, typesBouquet }: Props) {
+function AddBouquetForm({ onSubmit, types, bouquets }: Props) {
   const {
     control,
     register,
     formState: { errors, isValid, isSubmitted },
     handleSubmit,
+    reset,
   } = useForm<FormState>({
     defaultValues: {
       type: undefined,
@@ -47,17 +49,36 @@ function AddBouquetForm({ onSubmit, typesBouquet }: Props) {
   const openModal = () => {
     setModalIsOpened(true);
   };
+
+  const toSubmit = (data: FormState) => {
+    onSubmit(data);
+    reset();
+  };
   return (
-    <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={style.form} onSubmit={handleSubmit(toSubmit)}>
       <p className={style.title}>Добавить букет</p>
       <label className={style.field}>
         Название:
-        <input type="text" {...register("name")} />
+        <input
+          type="text"
+          {...register("name", {
+            required: "Обязательное поле",
+            validate: (value) => {
+              if (bouquets.find((item) => item.name === value))
+                return "Букет с таким название уже есть";
+              return true;
+            },
+          })}
+        />
       </label>
 
       <label className={style.field}>
         Описание:
-        <textarea {...register("description")} />
+        <textarea
+          {...register("description", {
+            required: "Обязательное поле",
+          })}
+        />
       </label>
 
       <label className={style.field}>
@@ -65,6 +86,9 @@ function AddBouquetForm({ onSubmit, typesBouquet }: Props) {
         <Controller
           name="price"
           control={control}
+          rules={{
+            required: "Обязательное поле",
+          }}
           render={({ field: { onChange, value } }) => (
             <InputNum onChange={onChange} value={value} />
           )}
@@ -76,12 +100,15 @@ function AddBouquetForm({ onSubmit, typesBouquet }: Props) {
         <Controller
           name="type"
           control={control}
+          rules={{
+            required: "Обязательное поле",
+          }}
           render={({ field: { onChange, value } }) => (
             <Select
               onChange={onChange}
-              options={createOptionListFromTypesList(typesBouquet)}
+              options={createOptionListFromTypesList(types)}
               value={value}
-              placeholder={"all"}
+              placeholder={"Выберите вид букета"}
               cn={style.select}
             />
           )}
@@ -93,6 +120,9 @@ function AddBouquetForm({ onSubmit, typesBouquet }: Props) {
         <Controller
           name="images"
           control={control}
+          rules={{
+            required: "Обязательное поле",
+          }}
           render={({ field: { onChange, value } }) => (
             <InputFiles text="Выбрать" setFilesData={onChange} />
           )}
@@ -107,7 +137,11 @@ function AddBouquetForm({ onSubmit, typesBouquet }: Props) {
       </div>
       <div className={style.btns}>
         <ToBack to="/admin" cn={style.to_back} />
-        <button className={style.btn} type="submit">
+        <button
+          className={style.btn}
+          type="submit"
+          disabled={isSubmitted && !isValid}
+        >
           Добавить
         </button>
       </div>

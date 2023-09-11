@@ -1,22 +1,32 @@
 import { nanoid } from "@reduxjs/toolkit";
 import React from "react";
 import AddBouquetForm from "../../components/Admin/AddBouquet/AddBouquetForm/AddBouquetForm";
+import { addBouquet } from "../../firebase/addBouquet";
 import { getBouquet } from "../../firebase/getBoququt";
 import { setBouquet } from "../../firebase/setBouquet";
-// import { getBouquet } from "../../firebase/getBouquet";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 import { typesBouquet } from "../../MOCK/MOCK";
+import { Bouquet } from "../../types/types";
 
 function AddBouquetContainer() {
+  const { types, bouquets } = useAppSelector((store) => store.bouquets);
+
   return (
     <>
       <AddBouquetForm
         onSubmit={(data) => {
-          // setBouquet(nanoid(), data.name);
-          console.log("start");
-          getBouquet();
+          const bouquet: Omit<Bouquet, "id"> = {
+            name: data.name,
+            description: data.description,
+            image: "-",
+            price: data.price,
+            type: data.type.value,
+          };
+          addBouquet(bouquet);
         }}
-        typesBouquet={typesBouquet}
+        types={types}
+        bouquets={bouquets}
       />
     </>
   );

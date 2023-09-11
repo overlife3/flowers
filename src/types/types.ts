@@ -5,12 +5,16 @@ export type TypeBouquet = {
   value: string;
 };
 
-export type CardBouquet = {
+export type Bouquet = {
   id: TId;
+  type: string;
   name: string;
   price: string;
   image: string;
+  description: string;
 };
+
+export type CardBouquet = Omit<Bouquet, "description" | "type">;
 
 export type Advantage = {
   name: string;

@@ -13,7 +13,15 @@ import AddType from "./components/Admin/AddType/AddType";
 import AddBouquet from "./components/Admin/AddBouquet/AddBouquet";
 import RemoveType from "./components/Admin/RemoveType/RemoveType";
 import RemoveBouquet from "./components/Admin/RemoveBouquet/RemoveBouquet";
+import { followTypes } from "./firebase/followTypes";
+import { useDispatch } from "react-redux";
+import { followBouquets } from "./firebase/followBouquets";
+
 function App() {
+  const dispatch = useDispatch();
+
+  followTypes(dispatch);
+  followBouquets(dispatch);
   return (
     <div className="App">
       <Routes>
