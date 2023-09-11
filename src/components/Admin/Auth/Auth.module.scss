@@ -1,3 +1,4 @@
+@import "../../../scss/mixins.scss";
 .form {
   box-shadow: 0px 0px 14px 0px rgba(34, 60, 80, 0.3);
   max-width: 500px;
@@ -23,4 +24,10 @@
     font-size: 18px;
     font-weight: lighter;
   }
+}
+
+.btn {
+  @include orange-button;
+  padding: 8px 16px;
+  margin-top: 20px;
 }

@@ -4,7 +4,7 @@ import style from "./Auth.module.scss";
 import { Auth as AuthType } from "../../../types/types";
 
 type Props = {
-  onSubmit: () => void;
+  onSubmit: (data: AuthType) => void;
 };
 
 type FormState = AuthType;
@@ -20,6 +20,7 @@ function Auth({ onSubmit }: Props) {
     },
     mode: "onSubmit",
   });
+
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
       <p className={style.title}>
@@ -31,6 +32,9 @@ function Auth({ onSubmit }: Props) {
         Пароль:
         <input type="text" {...register("password")} />
       </label>
+      <button type="submit" className={style.btn}>
+        Войти
+      </button>
     </form>
   );
 }
