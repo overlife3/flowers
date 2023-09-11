@@ -12,17 +12,20 @@ export const followTypes = (dispatch: Dispatch) => {
   onValue(typesRef, (snapshot) => {
     const data = snapshot.val() as Data;
     console.log("types", data);
+    if (data) {
+      const keys = Object.keys(data);
+      const values = Object.values(data);
+      const types: TypeBouquet[] = [];
 
-    const keys = Object.keys(data);
-    const values = Object.values(data);
-    const types: TypeBouquet[] = [];
-
-    for (let i = 0; i < keys.length; i++) {
-      types.push({
-        id: keys[i],
-        value: values[i],
-      });
+      for (let i = 0; i < keys.length; i++) {
+        types.push({
+          id: keys[i],
+          value: values[i],
+        });
+      }
+      dispatch(actions.setTypes(types));
+    } else {
+      dispatch(actions.setTypes([]));
     }
-    dispatch(actions.setTypes(types));
   });
 };

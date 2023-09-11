@@ -29,8 +29,9 @@ export const bouquetImages: string[] = [
 
 export const cardBouquet: CardBouquet = {
   id: "0",
-  image:
+  image: [
     "https://piratebrowser.com/wp-content/uploads/2021/10/flowers-1000x600.jpg",
+  ],
   name: "super name 1",
   price: "1000",
 };
@@ -38,27 +39,29 @@ export const cardBouquet: CardBouquet = {
 export const cardBouquetArr: CardBouquet[] = [
   {
     id: "0",
-    image:
+    image: [
       "https://piratebrowser.com/wp-content/uploads/2021/10/flowers-1000x600.jpg",
+    ],
     name: "super name 2",
     price: "500",
   },
   {
     id: "1",
-    image: "https://ph0.qna.center/storage/photos/mihail2978/1872984.jpg",
+    image: ["https://ph0.qna.center/storage/photos/mihail2978/1872984.jpg"],
     name: "super name 3",
     price: "700",
   },
   {
     id: "2",
-    image:
+    image: [
       "https://img4.goodfon.ru/original/800x480/1/88/rozy-buket-buket-na-stole-rozovaia-roza.jpg",
+    ],
     name: "super name 4",
     price: "1000",
   },
   {
     id: "3",
-    image: "https://malinkakat.ru/noname/imgbig/malinkakat_ru_11827.jpg",
+    image: ["https://malinkakat.ru/noname/imgbig/malinkakat_ru_11827.jpg"],
     name: "super name 5",
     price: "900",
   },

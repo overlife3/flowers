@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { CardBouquet } from "../../../types/types";
+import { Bouquet, CardBouquet } from "../../../types/types";
 import Popup from "../../Modal/PopupBouquet/PopupBouquet";
 import style from "./CardBouquet.module.scss";
 
 type Props = {
-  item: CardBouquet;
+  item: Bouquet;
 };
 
 function Card({ item }: Props) {
@@ -25,7 +25,7 @@ function Card({ item }: Props) {
       <div className={style.card}>
         <div className={style.container}>
           <div className={style.image}>
-            <img src={item.image} alt="Букет" />
+            <img src={item.image[0]} alt="Букет" />
           </div>
           <div className={style.content}>
             <p className={style.title}>{item.name}</p>
@@ -37,7 +37,7 @@ function Card({ item }: Props) {
         </div>
       </div>
 
-      <Popup isOpened={isOpened} onClose={onClose} />
+      <Popup isOpened={isOpened} onClose={onClose} item={item} />
     </>
   );
 }

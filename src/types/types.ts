@@ -10,7 +10,7 @@ export type Bouquet = {
   type: string;
   name: string;
   price: string;
-  image: string;
+  image: string[];
   description: string;
 };
 

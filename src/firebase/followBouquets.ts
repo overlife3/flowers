@@ -28,6 +28,8 @@ export const followBouquets = (dispatch: Dispatch) => {
         });
       }
       dispatch(actions.setBouquets(bouquets));
+    } else {
+      dispatch(actions.setBouquets([]));
     }
   });
 };

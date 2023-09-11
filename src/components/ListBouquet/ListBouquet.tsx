@@ -1,8 +1,8 @@
 import React from "react";
-import { CardBouquet } from "../../types/types";
+import { Bouquet, CardBouquet } from "../../types/types";
 import Card from "../Card/CardBouquet/CardBouquet";
 import style from "./ListBouquet.module.scss";
-type Props = { items: CardBouquet[] };
+type Props = { items: Bouquet[] };
 
 function List({ items }: Props) {
   return (

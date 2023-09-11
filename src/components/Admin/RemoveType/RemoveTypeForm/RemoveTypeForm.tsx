@@ -1,8 +1,9 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { createOptionListFromTypesList } from "../../../../helpers/createOptionListFromTypesList";
+import { getBouquetsByType } from "../../../../helpers/getBouquetsByType";
 import { typesBouquet } from "../../../../MOCK/MOCK";
-import { TId, TypeBouquet } from "../../../../types/types";
+import { Bouquet, TId, TypeBouquet } from "../../../../types/types";
 import Select from "../../../Form/Select/Select";
 import ToBack from "../../../ToBack/ToBack";
 import style from "./RemoveTypeForm.module.scss";
@@ -12,11 +13,12 @@ type FormState = {
 };
 
 type Props = {
+  bouquets: Bouquet[];
   types: TypeBouquet[];
   onSubmit: (data: FormState) => void;
 };
 
-function RemoveTypeForm({ onSubmit, types }: Props) {
+function RemoveTypeForm({ onSubmit, types, bouquets }: Props) {
   const {
     control,
     formState: { errors, isValid, isSubmitted },
@@ -43,6 +45,11 @@ function RemoveTypeForm({ onSubmit, types }: Props) {
           control={control}
           rules={{
             required: "Обязательное поле",
+            validate: (value) => {
+              if (getBouquetsByType(value.value, bouquets).length !== 0)
+                return "Остались букеты данного вида. Сначала удалите их";
+              return true;
+            },
           }}
           render={({ field: { onChange, value } }) => (
             <Select

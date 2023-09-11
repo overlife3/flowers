@@ -6,18 +6,21 @@ import SwiperBouquet from "./Swiper/SwiperBouquet/SwiperBouquet";
 import PopupOrder from "./Order/Order";
 import Count from "./Form/Count/Count";
 import BurgerMenu from "./decorations/BurgerMenu/BurgerMenu";
+import { getImageUrl } from "../firebase/getImageUrl";
 function Test() {
-  const [isOpened, setIsOpened] = useState(true);
+  const [image, setImage] = useState<string | null>(null);
 
-  const onOpen = () => {
-    setIsOpened(true);
+  const handleClick = () => {
+    getImageUrl("VKLkkon4ow6ST7xD3B5XZ").then(console.log);
+
+    // .then((url: string) => setImage(url));
   };
-
-  const onClose = () => {
-    setIsOpened(false);
-  };
-
-  return <></>;
+  return (
+    <>
+      <button onClick={handleClick}>click</button>
+      {image && <img src={image} />}
+    </>
+  );
 }
 
 export default Test;

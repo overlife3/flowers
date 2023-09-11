@@ -10,12 +10,12 @@ import style from "./AddBouquetForm.module.scss";
 import InputNum from "../../../Form/InputNum/InputNum";
 import PopupBouquet from "../../../Modal/PopupBouquet/PopupBouquet";
 type Props = {
-  onSubmit: (data: FormState) => void;
+  onSubmit: (data: AddBouquetFormState) => void;
   types: TypeBouquet[];
   bouquets: Bouquet[];
 };
 
-type FormState = {
+export type AddBouquetFormState = {
   type: TypeBouquet;
   name: string;
   description: string;
@@ -30,7 +30,7 @@ function AddBouquetForm({ onSubmit, types, bouquets }: Props) {
     formState: { errors, isValid, isSubmitted },
     handleSubmit,
     reset,
-  } = useForm<FormState>({
+  } = useForm<AddBouquetFormState>({
     defaultValues: {
       type: undefined,
       name: "",
@@ -50,7 +50,7 @@ function AddBouquetForm({ onSubmit, types, bouquets }: Props) {
     setModalIsOpened(true);
   };
 
-  const toSubmit = (data: FormState) => {
+  const toSubmit = (data: AddBouquetFormState) => {
     onSubmit(data);
     reset();
   };
@@ -133,7 +133,11 @@ function AddBouquetForm({ onSubmit, types, bouquets }: Props) {
         <button className={style.btn} onClick={openModal}>
           Предпросмотр
         </button>
-        <PopupBouquet isOpened={modalIsOpened} onClose={closeModal} />
+        <PopupBouquet
+          isOpened={modalIsOpened}
+          onClose={closeModal}
+          item={{} as Bouquet}
+        />
       </div>
       <div className={style.btns}>
         <ToBack to="/admin" cn={style.to_back} />

@@ -4,7 +4,7 @@ import { removeTypeBouquet } from "../../firebase/removeTypeBouquet";
 import { useAppSelector } from "../../hooks/useAppSelector";
 
 function RemoveTypeContainers() {
-  const types = useAppSelector((store) => store.bouquets.types);
+  const { types, bouquets } = useAppSelector((store) => store.bouquets);
 
   return (
     <RemoveTypeForm
@@ -13,6 +13,7 @@ function RemoveTypeContainers() {
         removeTypeBouquet(id);
       }}
       types={types}
+      bouquets={bouquets}
     />
   );
 }
