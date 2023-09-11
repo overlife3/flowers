@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import RefsContext from "./context/refs";
+import "./firebase/initializeApp";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -10,7 +10,7 @@ import style from "./AddBouquetForm.module.scss";
 import InputNum from "../../../Form/InputNum/InputNum";
 import PopupBouquet from "../../../Modal/PopupBouquet/PopupBouquet";
 type Props = {
-  onSubmit: () => void;
+  onSubmit: (data: FormState) => void;
   typesBouquet: TypeBouquet[];
 };
 
