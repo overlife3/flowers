@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import bouquets from "./reducers/bouquets";
+import user from "./reducers/user";
 
 const rootReducer = combineReducers({
   bouquets: bouquets,
+  user: user,
 });
 
 const store = configureStore({

@@ -16,6 +16,8 @@ import RemoveBouquet from "./components/Admin/RemoveBouquet/RemoveBouquet";
 import { followTypes } from "./firebase/followTypes";
 import { useDispatch } from "react-redux";
 import { followBouquets } from "./firebase/followBouquets";
+import RequireAuth from "./hoc/RequireAuth";
+import AdminMain from "./components/Admin/Main/Main";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,12 +35,21 @@ function App() {
             </>
           }
         />
-        <Route path="/admin/auth" element={<AdminAuth />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/add-type" element={<AddType />} />
-        <Route path="/admin/add-bouquet" element={<AddBouquet />} />
-        <Route path="/admin/remove-type" element={<RemoveType />} />
-        <Route path="/admin/remove-bouquet" element={<RemoveBouquet />} />
+        <Route path="/login" element={<AdminAuth />} />
+        <Route
+          path="/admin"
+          element={
+            <RequireAuth>
+              <Admin />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<AdminMain />} />
+          <Route path="/admin/add-type" element={<AddType />} />
+          <Route path="/admin/add-bouquet" element={<AddBouquet />} />
+          <Route path="/admin/remove-type" element={<RemoveType />} />
+          <Route path="/admin/remove-bouquet" element={<RemoveBouquet />} />
+        </Route>
         <Route path="/test" element={<Test />} />
         <Route path="/politics" element={<p>Политика конфиденциальности</p>} />
         <Route path="/basket" element={<Basket />} />

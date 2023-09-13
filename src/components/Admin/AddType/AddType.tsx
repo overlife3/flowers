@@ -5,11 +5,7 @@ import style from "./AddType.module.scss";
 import AddTypeForm from "./AddTypeForm/AddTypeForm";
 
 function AddType() {
-  return (
-    <OverlayContainer>
-      <AddTypeContainer />
-    </OverlayContainer>
-  );
+  return <AddTypeContainer />;
 }
 
 export default AddType;

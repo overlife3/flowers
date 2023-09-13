@@ -37,3 +37,5 @@ export type FileData = {
   name: string;
   size: number;
 };
+
+export type UserType = "admin" | "user";

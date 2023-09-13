@@ -3,11 +3,7 @@ import AddBouquetContainer from "../../../containers/Admin/AddBouquetContainer";
 import OverlayContainer from "../../decorations/OverlayContainer/OverlayContainer";
 
 function AddBouquet() {
-  return (
-    <OverlayContainer>
-      <AddBouquetContainer />
-    </OverlayContainer>
-  );
+  return <AddBouquetContainer />;
 }
 
 export default AddBouquet;

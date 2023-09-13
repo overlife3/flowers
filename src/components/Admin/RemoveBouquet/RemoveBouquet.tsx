@@ -3,11 +3,7 @@ import RemoveBouquetContainer from "../../../containers/Admin/RemoveBouquetConta
 import OverlayContainer from "../../decorations/OverlayContainer/OverlayContainer";
 
 function RemoveBouquet() {
-  return (
-    <OverlayContainer>
-      <RemoveBouquetContainer />
-    </OverlayContainer>
-  );
+  return <RemoveBouquetContainer />;
 }
 
 export default RemoveBouquet;

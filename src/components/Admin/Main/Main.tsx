@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ToBack from "../../ToBack/ToBack";
 import style from "./Main.module.scss";
 
 function Main() {
@@ -20,6 +21,8 @@ function Main() {
       <button className={style.btn} onClick={() => navigate("remove-bouquet")}>
         Удалить букет
       </button>
+
+      <ToBack to="/" />
     </div>
   );
 }
