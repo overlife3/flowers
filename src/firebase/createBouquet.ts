@@ -12,33 +12,18 @@ export const createBouquet = async (data: AddBouquetFormState) => {
     addImage(image, imagesId[index])
   );
 
-  // Promise.all(imagesUpload)
-  //   .then((res) => {
-  //     console.log(res);
-  //     const bouquet: Omit<Bouquet, "id"> = {
-  //       name: data.name,
-  //       description: data.description,
-  //       price: data.price,
-  //       type: data.type.value,
-  //       image: imagesId,
-  //     };
-  //     addBouquet(bouquet);
-  //   })
-  //   .catch(console.error);
-
-  await Promise.all(imagesUpload);
+  const imagesUploadRes = await Promise.all(imagesUpload);
 
   const imagesUrlPromises = imagesId.map((item) => getImageUrl(item));
 
-  const imagesUrl = await Promise.all(imagesUrlPromises).then((res) => {
-    console.log(res);
-    const bouquet: Omit<Bouquet, "id"> = {
-      name: data.name,
-      description: data.description,
-      price: data.price,
-      type: data.type.value,
-      image: res,
-    };
-    addBouquet(bouquet);
-  });
+  const imagesUrl = await Promise.all(imagesUrlPromises);
+
+  const bouquet: Omit<Bouquet, "id"> = {
+    name: data.name,
+    description: data.description,
+    price: data.price,
+    type: data.type.value,
+    image: imagesUrl,
+  };
+  await addBouquet(bouquet);
 };

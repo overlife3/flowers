@@ -2,7 +2,9 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { createOptionListFromTypesList } from "../../../../helpers/createOptionListFromTypesList";
 import { Bouquet, TypeBouquet } from "../../../../types/types";
+import ErrorAlert from "../../../Alert/ErrorAlert/ErrorAlert";
 import Select, { IOptionSelect } from "../../../Form/Select/Select";
+import Loader from "../../../Loader/Loader";
 import ToBack from "../../../ToBack/ToBack";
 import style from "./RemoveBouquetForm.module.scss";
 
@@ -10,6 +12,9 @@ type Props = {
   onSubmit: (data: FormState) => void;
   types: TypeBouquet[];
   bouquets: Bouquet[];
+  error: any;
+  isLoading: boolean;
+  setError: (value: any) => void;
 };
 
 type FormState = {
@@ -31,7 +36,14 @@ const createOptionListFromBouquets = (list: Bouquet[], type: string) => {
   return res;
 };
 
-function RemoveBouquetForm({ onSubmit, types, bouquets }: Props) {
+function RemoveBouquetForm({
+  onSubmit,
+  types,
+  bouquets,
+  error,
+  isLoading,
+  setError,
+}: Props) {
   const {
     control,
     register,
@@ -79,6 +91,9 @@ function RemoveBouquetForm({ onSubmit, types, bouquets }: Props) {
           )}
         />
       </div>
+      {errors.type?.type === "required" && (
+        <ErrorAlert title={errors.type.message || ""} />
+      )}
 
       <div className={style.field}>
         <p className={style.field_title}>Название:</p>
@@ -102,17 +117,30 @@ function RemoveBouquetForm({ onSubmit, types, bouquets }: Props) {
           )}
         />
       </div>
+      {errors.name?.type === "required" && (
+        <ErrorAlert title={errors.name.message || ""} />
+      )}
 
       <div className={style.btns}>
         <ToBack to="/admin" cn={style.to_back} />
-        <button
-          className={style.btn}
-          type="submit"
-          disabled={isSubmitted && !isValid}
-        >
-          Удалить
-        </button>
+        <div className={style.button_container}>
+          {isLoading && <Loader />}
+          <button
+            className={style.btn}
+            type="submit"
+            disabled={isSubmitted && !isValid}
+          >
+            Удалить
+          </button>
+        </div>
       </div>
+      {error && (
+        <ErrorAlert
+          title="Произошла ошибка"
+          desc="Попробуйте снова"
+          onClick={() => setError(null)}
+        />
+      )}
     </form>
   );
 }

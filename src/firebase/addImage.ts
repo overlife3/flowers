@@ -4,6 +4,7 @@ export const addImage = async (file: File, id: string) => {
   const storage = getStorage();
   const storageRef = ref(storage, id);
 
-  // 'file' comes from the Blob or File API
-  return await uploadBytes(storageRef, file);
+  const res = await uploadBytes(storageRef, file); // ошибки firebase пробрасывает сам по себе
+
+  return res;
 };
