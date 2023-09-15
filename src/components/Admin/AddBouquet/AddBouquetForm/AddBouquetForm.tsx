@@ -171,7 +171,11 @@ function AddBouquetForm({
             required: "Обязательное поле",
           }}
           render={({ field: { onChange, value } }) => (
-            <InputFiles text="Выбрать" setFilesData={onChange} />
+            <InputFiles
+              text="Выбрать"
+              setFilesData={onChange}
+              accept="image/png, image/gif, image/jpeg"
+            />
           )}
         />
       </div>
