@@ -23,6 +23,7 @@ import ErrorAlert from "../Alert/ErrorAlert/ErrorAlert";
 
 type Props = {
   bouquetsOrder: BouquetsOrder;
+  onSubmit: (data: FormState) => void;
 };
 
 type FormState = {
@@ -46,7 +47,7 @@ const deliveryOptions: RadioOptionType[] = [
   },
 ];
 
-function Order({ bouquetsOrder }: Props) {
+function Order({ bouquetsOrder, onSubmit }: Props) {
   // const [arrBouquetsOrder, setArrBouquetsOrder] = useState<BouquetOrder[]>([]);
   // const [totalPrice, setTotalPrice] = useState(0);
   let totalPrice = 0;
@@ -83,20 +84,20 @@ function Order({ bouquetsOrder }: Props) {
     setValue("bouquetsOrder", arrBouquetsOrder);
   }, [bouquetsOrder]);
 
-  const onSubmit = (data: FormState) => {
+  const toSubmit = (data: FormState) => {
     if (getValues("bouquetsOrder").length === 0) {
       setError("bouquetsOrder", {
         type: "required",
         message: "Выберите букеты в каталоге",
       });
     } else {
-      console.log(data);
+      onSubmit(data);
     }
   };
 
   return (
     <div className={style.container}>
-      <form className={style.body} onSubmit={handleSubmit(onSubmit)}>
+      <form className={style.body} onSubmit={handleSubmit(toSubmit)}>
         <div className={style.to_back}>
           <ToBack to="/" />
         </div>

@@ -21,7 +21,7 @@ function MakeBouquet() {
     mode: "onSubmit",
   });
   return (
-    <form className={style.form}>
+    <form className={style.form} action="order.php" method="POST">
       <input type="text" className={style.name} placeholder="Как вас зовут?" />
       <Controller
         name="phone"
