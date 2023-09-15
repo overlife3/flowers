@@ -24,6 +24,20 @@
     }
   }
 }
+
+.order_count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  background-color: var(--orange-color);
+  border-radius: 50%;
+}
 @media (max-width: 425px) {
   .basket {
     bottom: 60px;

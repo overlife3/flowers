@@ -1,13 +1,15 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
+import { count } from "console";
 import {
   TypeBouquet,
   Bouquet,
   UserType,
   BouquetOrder,
+  BouquetsOrder,
 } from "../../types/types";
 
 type State = {
-  bouquets_order: { [key: string]: BouquetOrder };
+  bouquets_order: BouquetsOrder;
 };
 
 const initialState: State = {
@@ -18,10 +20,14 @@ const basketReducer = createSlice({
   name: "basketReducer",
   initialState: initialState,
   reducers: {
-    addBouquetOrder: (state, action: PayloadAction<BouquetOrder>) => {
+    addBouquetOrder: (state, action: PayloadAction<Bouquet>) => {
+      const bouquetOrder: BouquetOrder = {
+        item: action.payload,
+        count: 1,
+      };
       state.bouquets_order = {
         ...state.bouquets_order,
-        [nanoid()]: action.payload,
+        [action.payload.id]: bouquetOrder,
       };
     },
     incCount: (state, action: PayloadAction<string>) => {

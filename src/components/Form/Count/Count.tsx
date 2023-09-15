@@ -6,9 +6,11 @@ import style from "./Count.module.scss";
 type Props = {
   initialValue: number;
   maxValue: number;
+  onInc: () => void;
+  onDec: () => void;
 };
 
-function Count({ initialValue, maxValue }: Props) {
+function Count({ initialValue, maxValue, onInc, onDec }: Props) {
   const [count, setCount] = useState(initialValue);
 
   const [plusIsVisible, setPlusIsVisible] = useState(true);
@@ -30,11 +32,13 @@ function Count({ initialValue, maxValue }: Props) {
   const increment = () => {
     if (count < maxValue) {
       setCount((prev) => ++prev);
+      onInc();
     }
   };
   const decrement = () => {
     if (count > 0) {
       setCount((prev) => --prev);
+      onDec();
     }
   };
 

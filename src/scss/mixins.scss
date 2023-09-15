@@ -11,6 +11,10 @@
   &:hover {
     background-color: var(--orange-2-color);
   }
+  &:disabled {
+    background-color: var(--orange-3-color);
+    cursor: auto;
+  }
 }
 
 @mixin input {

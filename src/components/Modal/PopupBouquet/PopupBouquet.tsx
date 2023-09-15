@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 import SvgSelector from "../../SvgSelector/SvgSelector";
 import style from "./PopupBouquet.module.scss";
@@ -7,6 +7,9 @@ import SwiperBouquet from "../../Swiper/SwiperBouquet/SwiperBouquet";
 import PopupWrapper from "../PopupWrapper/PopupWrapper";
 import { Bouquet } from "../../../types/types";
 import { useAppSelector } from "../../../hooks/useAppSelector";
+import { useDispatch } from "react-redux";
+import { actions } from "../../../redux/reducers/basket";
+import { useNavigate } from "react-router-dom";
 type Props = {
   item: Bouquet;
   onClose: () => void;
@@ -14,9 +17,20 @@ type Props = {
 };
 
 function PopupBouquet({ onClose, isOpened, item }: Props) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const bouquetOrders = useAppSelector((store) => store.basket.bouquets_order);
   const containerRef = useRef(null);
+  let disabledButton: boolean = false;
 
   useOutsideClick(containerRef, onClose);
+
+  if (item.id in bouquetOrders) disabledButton = true;
+
+  const handleOrder = () => {
+    dispatch(actions.addBouquetOrder(item));
+    navigate("/basket");
+  };
 
   if (!isOpened) return null;
 
@@ -37,7 +51,13 @@ function PopupBouquet({ onClose, isOpened, item }: Props) {
             </div>
             <div className={style.footer}>
               <p className={style.price}>{item.price} р.</p>
-              <button className={style.buy}>Заказать</button>
+              <button
+                className={style.buy}
+                onClick={handleOrder}
+                disabled={disabledButton}
+              >
+                Заказать
+              </button>
             </div>
           </div>
         </div>

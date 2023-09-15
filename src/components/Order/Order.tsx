@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { bouquetImages } from "../../MOCK/MOCK";
-import { Delivery, RadioOptionType } from "../../types/types";
+import {
+  BouquetOrder,
+  BouquetsOrder,
+  Delivery,
+  RadioOptionType,
+} from "../../types/types";
 import InputPhone from "../Form/InputPhone/InputPhone";
 import SvgSelector from "../SvgSelector/SvgSelector";
 import PopupWrapper from "../Modal/PopupWrapper/PopupWrapper";
@@ -14,8 +19,14 @@ import "react-widgets/styles.css";
 import RadioGroup from "../Form/RadioGroup/RadioGroup";
 import { Link } from "react-router-dom";
 import ToBack from "../ToBack/ToBack";
+import ErrorAlert from "../Alert/ErrorAlert/ErrorAlert";
+
+type Props = {
+  bouquetsOrder: BouquetsOrder;
+};
 
 type FormState = {
+  bouquetsOrder: BouquetOrder[];
   name: string;
   phone: string;
   delivery: Delivery | null;
@@ -35,14 +46,29 @@ const deliveryOptions: RadioOptionType[] = [
   },
 ];
 
-function Order() {
+function Order({ bouquetsOrder }: Props) {
+  // const [arrBouquetsOrder, setArrBouquetsOrder] = useState<BouquetOrder[]>([]);
+  // const [totalPrice, setTotalPrice] = useState(0);
+  let totalPrice = 0;
+  const arrBouquetsOrder = Object.keys(bouquetsOrder).map((key) => {
+    const bouquetOrder = bouquetsOrder[key];
+    // setTotalPrice(
+    // (prevState) =>
+    totalPrice += bouquetOrder.count * Number(bouquetOrder.item.price);
+    // );
+    return bouquetOrder;
+  });
   const {
     control,
     register,
     formState: { errors, isValid, isSubmitted },
     handleSubmit,
+    setValue,
+    setError,
+    getValues,
   } = useForm<FormState>({
     defaultValues: {
+      bouquetsOrder: arrBouquetsOrder,
       name: "",
       phone: "",
       delivery: null,
@@ -52,9 +78,25 @@ function Order() {
     },
     mode: "onSubmit",
   });
+
+  useEffect(() => {
+    setValue("bouquetsOrder", arrBouquetsOrder);
+  }, [bouquetsOrder]);
+
+  const onSubmit = (data: FormState) => {
+    if (getValues("bouquetsOrder").length === 0) {
+      setError("bouquetsOrder", {
+        type: "required",
+        message: "Выберите букеты в каталоге",
+      });
+    } else {
+      console.log(data);
+    }
+  };
+
   return (
     <div className={style.container}>
-      <form className={style.body}>
+      <form className={style.body} onSubmit={handleSubmit(onSubmit)}>
         <div className={style.to_back}>
           <ToBack to="/" />
         </div>
@@ -64,34 +106,56 @@ function Order() {
             <p className={style.title}>Корзина букетов:</p>
           </div>
           <div className={style.list}>
-            {bouquetImages.map((image) => (
+            {arrBouquetsOrder.length === 0 && (
+              <p className={style.missing_order_message}>Корзина пуста</p>
+            )}
+            {arrBouquetsOrder.map((item) => (
               <OrderedBouquet
-                image={image}
-                count={1}
-                name="Name bouquet"
-                price="1000"
+                id={item.item.id}
+                image={item.item.image[0]}
+                count={item.count}
+                name={item.item.name}
+                price={item.item.price}
                 cn={style.order}
               />
             ))}
+            {errors.bouquetsOrder && (
+              <ErrorAlert title={errors.bouquetsOrder.message || ""} />
+            )}
           </div>
           <p className={style.amount}>
-            Сумма: <span className={style.value}>1000</span> р.
+            Сумма: <span className={style.value}>{totalPrice}</span> р.
           </p>
         </div>
         <label className={style.field + " " + style.name}>
           <p className={style.field_title}>Как вас зовут:</p>
-          <input type="text" {...register("name")} className={style.input} />
+          <input
+            type="text"
+            {...register("name", { required: "Обязательное поле" })}
+            className={style.input}
+          />
+          {errors.name && <ErrorAlert title={errors.name.message || ""} />}
         </label>
         <label className={style.field + " " + style.phone}>
           <p className={style.field_title}>Ваш телефон:</p>
           <Controller
             control={control}
             name="phone"
+            rules={{
+              required: "Обязательное поле",
+              validate: (value) => {
+                const reg = /^\+?[1-9][0-9]{7,14}$/;
+                if (reg.test(value)) return true;
+                return "Неправильно введен номер";
+              },
+            }}
             render={({ field: { onChange, value } }) => (
               <InputPhone onChange={onChange} value={value} />
             )}
           />
         </label>
+        {errors.phone && <ErrorAlert title={errors.phone.message || ""} />}
+
         <label className={style.field}>
           <p className={style.field_title}>Доставка:</p>
           <Controller
@@ -113,11 +177,13 @@ function Order() {
           </p>
           <input
             type="text"
-            {...register("address")}
+            {...register("address", { required: "Обязательное поле" })}
             className={style.input}
             placeholder="г. Канаш, ул. Зеленая, д. 1"
           />
         </label>
+        {errors.address && <ErrorAlert title={errors.address.message || ""} />}
+
         <label className={style.field + " " + style.date}>
           <p className={style.field_title}>Дата:</p>
           <Controller
@@ -144,8 +210,12 @@ function Order() {
             )}
           />
         </label>
-        <p className={style.total_amount}>Итоговая сумма: {1000}</p>
-        <button type="submit" className={style.submit_btn}>
+        <p className={style.total_amount}>Итоговая сумма: {totalPrice}р.</p>
+        <button
+          type="submit"
+          className={style.submit_btn}
+          disabled={isSubmitted && !isValid}
+        >
           Заказать
         </button>
         <p className={style.politics}>

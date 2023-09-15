@@ -100,6 +100,9 @@
   margin-bottom: 20px;
 }
 
+.missing_order_message {
+  margin-bottom: 10px;
+}
 .submit_btn {
   @include orange-button;
   width: 250px;

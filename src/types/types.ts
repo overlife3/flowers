@@ -51,3 +51,7 @@ export type BouquetOrder = {
   item: Bouquet;
   count: number;
 };
+
+export type BouquetsOrder = {
+  [key: string]: BouquetOrder;
+};
