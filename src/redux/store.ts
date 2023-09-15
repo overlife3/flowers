@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import bouquets from "./reducers/bouquets";
+import catalog from "./reducers/catalog";
 import user from "./reducers/user";
 
 const rootReducer = combineReducers({
   bouquets: bouquets,
   user: user,
+  catalog: catalog,
 });
 
 const store = configureStore({

@@ -2,9 +2,13 @@ import React from "react";
 import { Bouquet, CardBouquet } from "../../types/types";
 import Card from "../Card/CardBouquet/CardBouquet";
 import style from "./ListBouquet.module.scss";
-type Props = { items: Bouquet[] };
+type Props = {
+  items: Bouquet[];
+  visibleLoadMore: boolean;
+  onLoadMore: () => void;
+};
 
-function List({ items }: Props) {
+function List({ items, visibleLoadMore, onLoadMore }: Props) {
   return (
     <div className={style.container}>
       <div className={style.list}>
@@ -12,9 +16,11 @@ function List({ items }: Props) {
           <Card item={item} key={item.id} />
         ))}
       </div>
-      <p className={style.more}>
-        <button>Больше</button>
-      </p>
+      {visibleLoadMore && (
+        <p className={style.more}>
+          <button onClick={onLoadMore}>Больше</button>
+        </p>
+      )}
     </div>
   );
 }

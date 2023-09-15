@@ -3,9 +3,16 @@
 .form {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   gap: 10px;
   width: 100%;
+}
+
+.group_field {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  gap: 10px;
 }
 .select {
   width: 250px;
@@ -47,8 +54,32 @@
   }
 }
 
+.btn {
+  @include orange-button;
+  height: 40px;
+  width: 80px;
+  align-self: flex-end;
+}
+
+@media (max-width: 900px) {
+  .form {
+    flex-wrap: wrap;
+  }
+  .group_field {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 600px) {
   .form {
-    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .group_field {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .btn {
+    align-self: auto;
   }
 }

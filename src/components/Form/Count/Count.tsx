@@ -20,7 +20,7 @@ function Count({ initialValue, maxValue }: Props) {
     } else {
       setPlusIsVisible(true);
     }
-    if (count === 0) {
+    if (count === 1) {
       setMinusIsVisible(false);
     } else {
       setMinusIsVisible(true);

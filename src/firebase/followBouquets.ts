@@ -11,7 +11,6 @@ export const followBouquets = (dispatch: Dispatch) => {
   const bouquetsRef = ref(db, REFS.bouquets);
   onValue(bouquetsRef, (snapshot) => {
     const data = snapshot.val() as Data;
-    console.log("bouquets", data);
     if (data) {
       const keys = Object.keys(data);
       const values = Object.values(data);

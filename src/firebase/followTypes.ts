@@ -11,7 +11,6 @@ export const followTypes = (dispatch: Dispatch) => {
   const typesRef = ref(db, REFS.types);
   onValue(typesRef, (snapshot) => {
     const data = snapshot.val() as Data;
-    console.log("types", data);
     if (data) {
       const keys = Object.keys(data);
       const values = Object.values(data);

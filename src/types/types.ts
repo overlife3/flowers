@@ -39,3 +39,15 @@ export type FileData = {
 };
 
 export type UserType = "admin" | "user";
+
+export type FilterParams = {
+  lower_price: number;
+  upper_price: number;
+  type: string;
+  name: string;
+};
+
+export type BouquetOrder = {
+  item: Bouquet;
+  count: number;
+};
