@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Order from "../components/Order/Order";
 import { createOrderFormData } from "../helpers/createOrderFormData";
+import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useAppSelector } from "../hooks/useAppSelector";
+import { actions } from "../redux/reducers/basket";
 
 type State = {
   isLoading: boolean;
@@ -14,6 +16,7 @@ const initialState: State = {
 };
 
 function OrderContainer() {
+  const dispatch = useAppDispatch();
   const bouquetsOrder = useAppSelector((store) => store.basket.bouquets_order);
   const [state, setState] = useState<State>(initialState);
 
@@ -37,6 +40,12 @@ function OrderContainer() {
             method: "POST",
             body: createOrderFormData(data),
           })
+            .then(() => {
+              const keys = Object.keys(bouquetsOrder);
+              for (let key of keys) {
+                dispatch(actions.removeBouquetOrder(key));
+              }
+            })
             .catch((err) => {
               setError(err);
               console.error(err);
