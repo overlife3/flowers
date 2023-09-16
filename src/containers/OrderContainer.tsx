@@ -28,6 +28,9 @@ function OrderContainer() {
     <>
       <Order
         bouquetsOrder={bouquetsOrder}
+        isLoading={state.isLoading}
+        error={state.error}
+        setErrorRes={setError}
         onSubmit={async (data) => {
           setIsLoading(true);
           await fetch("../../order.php", {

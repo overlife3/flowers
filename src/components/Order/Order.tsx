@@ -20,10 +20,14 @@ import RadioGroup from "../Form/RadioGroup/RadioGroup";
 import { Link } from "react-router-dom";
 import ToBack from "../ToBack/ToBack";
 import ErrorAlert from "../Alert/ErrorAlert/ErrorAlert";
+import Loader from "../Loader/Loader";
 
 type Props = {
   bouquetsOrder: BouquetsOrder;
   onSubmit: (data: FormState) => void;
+  isLoading: boolean;
+  error: any;
+  setErrorRes: (value: any) => void;
 };
 
 export type FormState = {
@@ -42,14 +46,21 @@ const deliveryOptions: RadioOptionType[] = [
     value: "pickup",
   },
   {
-    title: "Курьер",
+    title: "Доставка (по стоимости такси)",
     value: "courier",
   },
 ];
 
-function Order({ bouquetsOrder, onSubmit }: Props) {
+function Order({
+  bouquetsOrder,
+  onSubmit,
+  isLoading,
+  error,
+  setErrorRes,
+}: Props) {
   // const [arrBouquetsOrder, setArrBouquetsOrder] = useState<BouquetOrder[]>([]);
   // const [totalPrice, setTotalPrice] = useState(0);
+  const [havCourier, setHavCourier] = useState(false);
   let totalPrice = 0;
   const arrBouquetsOrder = Object.keys(bouquetsOrder).map((key) => {
     const bouquetOrder = bouquetsOrder[key];
@@ -67,6 +78,7 @@ function Order({ bouquetsOrder, onSubmit }: Props) {
     setValue,
     setError,
     getValues,
+    reset,
   } = useForm<FormState>({
     defaultValues: {
       bouquetsOrder: arrBouquetsOrder,
@@ -92,6 +104,7 @@ function Order({ bouquetsOrder, onSubmit }: Props) {
       });
     } else {
       onSubmit(data);
+      reset();
     }
   };
 
@@ -167,7 +180,14 @@ function Order({ bouquetsOrder, onSubmit }: Props) {
                 options={deliveryOptions}
                 name={"delivery"}
                 selected={value || deliveryOptions[0].value}
-                onChange={onChange}
+                onChange={(value) => {
+                  if (value === "courier") {
+                    setHavCourier(true);
+                  } else {
+                    setHavCourier(false);
+                  }
+                  onChange(value);
+                }}
               />
             )}
           />
@@ -211,14 +231,27 @@ function Order({ bouquetsOrder, onSubmit }: Props) {
             )}
           />
         </label>
-        <p className={style.total_amount}>Итоговая сумма: {totalPrice}р.</p>
-        <button
-          type="submit"
-          className={style.submit_btn}
-          disabled={isSubmitted && !isValid}
-        >
-          Заказать
-        </button>
+        <p className={style.total_amount}>
+          Итоговая сумма: {totalPrice}р. {havCourier && "+ доставка"}
+        </p>
+        <div className={style.submit_container}>
+          {isLoading && <Loader />}
+          <button
+            type="submit"
+            className={style.submit_btn}
+            disabled={isSubmitted && !isValid}
+          >
+            Заказать
+          </button>
+        </div>
+        {error && (
+          <ErrorAlert
+            cn={style.error_alert}
+            title="Произошла ошибка"
+            desc="Повторите отправку"
+            onClick={() => setErrorRes(null)}
+          />
+        )}
         <p className={style.politics}>
           Отправляя заказ, вы соглашаетесь с{" "}
           <Link to={"/politics"}>политикой конфиденциальности</Link>
