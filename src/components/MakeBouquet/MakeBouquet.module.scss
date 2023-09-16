@@ -17,7 +17,11 @@
   width: 220px;
   padding: 0 16px;
 }
-
+.politics {
+  font-weight: lighter;
+  font-size: 18px;
+  margin-top: 10px;
+}
 .submit {
   @include orange-button;
 

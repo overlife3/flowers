@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { createMakeFormData } from "../../helpers/createMakeFormData";
 import ErrorAlert from "../Alert/ErrorAlert/ErrorAlert";
 import InputPhone from "../Form/InputPhone/InputPhone";
@@ -107,6 +108,10 @@ function MakeBouquet() {
           onClick={() => setError(null)}
         />
       )}
+      <p className={style.politics}>
+        Отправляя заказ, вы соглашаетесь с{" "}
+        <Link to={"/politics"}>политикой конфиденциальности</Link>
+      </p>
     </form>
   );
 }

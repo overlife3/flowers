@@ -19,6 +19,7 @@ import { followBouquets } from "./firebase/followBouquets";
 import RequireAuth from "./hoc/RequireAuth";
 import AdminMain from "./components/Admin/Main/Main";
 import { getDatabase, goOffline } from "firebase/database";
+import Polytics from "./pages/Politycs/Polytics";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ function App() {
           <Route path="/admin/remove-bouquet" element={<RemoveBouquet />} />
         </Route>
         <Route path="/test" element={<Test />} />
-        <Route path="/politics" element={<p>Политика конфиденциальности</p>} />
+        <Route path="/politics" element={<Polytics />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/*" element={<p>404</p>} />
       </Routes>
