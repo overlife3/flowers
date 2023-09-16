@@ -18,10 +18,13 @@ import { useDispatch } from "react-redux";
 import { followBouquets } from "./firebase/followBouquets";
 import RequireAuth from "./hoc/RequireAuth";
 import AdminMain from "./components/Admin/Main/Main";
+import { getDatabase, goOffline } from "firebase/database";
 
 function App() {
   const dispatch = useDispatch();
-
+  window.addEventListener("beforeunload", function () {
+    goOffline(getDatabase());
+  });
   followTypes(dispatch);
   followBouquets(dispatch);
   return (

@@ -1,8 +1,13 @@
 @import "../../scss/mixins.scss";
 
 .form {
+  min-height: 120px;
+}
+
+.container {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -21,8 +26,32 @@
   text-align: center;
 }
 
+.alert_error {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 150px;
+}
+.submit_container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 @media (max-width: 650px) {
-  .form {
+  .container {
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 630px) {
+  .form {
+    min-height: 170px;
+  }
+  .container {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
   }
 }

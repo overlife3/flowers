@@ -17,7 +17,7 @@ function ErrorAlert({ title, desc, cn, onClick }: Props) {
       <p className={style.title}>{title}</p>
       <p className={style.desc}>{desc || ""}</p>
       {onClick && (
-        <button onClick={onClick} className={style.btn}>
+        <button onClick={onClick} className={style.btn} type="button">
           Ок
         </button>
       )}

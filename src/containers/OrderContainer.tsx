@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Order from "../components/Order/Order";
+import { createOrderFormData } from "../helpers/createOrderFormData";
 import { useAppSelector } from "../hooks/useAppSelector";
 
 type State = {
@@ -29,9 +30,9 @@ function OrderContainer() {
         bouquetsOrder={bouquetsOrder}
         onSubmit={async (data) => {
           setIsLoading(true);
-          await fetch("order.php", {
+          await fetch("../../order.php", {
             method: "POST",
-            body: new FormData(),
+            body: createOrderFormData(data),
           })
             .catch((err) => {
               setError(err);

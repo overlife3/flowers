@@ -26,11 +26,11 @@ type Props = {
   onSubmit: (data: FormState) => void;
 };
 
-type FormState = {
+export type FormState = {
   bouquetsOrder: BouquetOrder[];
   name: string;
   phone: string;
-  delivery: Delivery | null;
+  delivery: Delivery;
   address: string;
   date: Date | null;
   time: Date | null;
@@ -72,7 +72,7 @@ function Order({ bouquetsOrder, onSubmit }: Props) {
       bouquetsOrder: arrBouquetsOrder,
       name: "",
       phone: "",
-      delivery: null,
+      delivery: "pickup",
       address: "",
       date: null,
       time: null,
