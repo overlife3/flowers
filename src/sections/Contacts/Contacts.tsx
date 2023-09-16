@@ -15,7 +15,10 @@ function Contacts() {
           <p className={style.phone}>+7 (965) 689-69-90</p>
           <div className={style.links}>
             {" "}
-            <a className={style.link}>
+            <a
+              className={style.link}
+              href="https://wa.me/79656896990?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%F0%9F%91%8B%20"
+            >
               <SvgSelector name="inst" cn={style.svg} />
             </a>
             <a className={style.link}>

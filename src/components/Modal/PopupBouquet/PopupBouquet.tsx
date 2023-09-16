@@ -36,6 +36,7 @@ function PopupBouquet({ onClose, isOpened, item }: Props) {
 
   return (
     <PopupWrapper onClose={onClose} isOpened={isOpened}>
+      {/* <div style={{ height: "580px" }}> */}
       <div className={style.body}>
         <button className={style.close} onClick={onClose}>
           <SvgSelector name="cross" />
@@ -62,6 +63,7 @@ function PopupBouquet({ onClose, isOpened, item }: Props) {
           </div>
         </div>
       </div>
+      {/* </div> */}
     </PopupWrapper>
   );
 }

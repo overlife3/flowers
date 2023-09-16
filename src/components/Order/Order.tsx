@@ -158,7 +158,7 @@ function Order({
             rules={{
               required: "Обязательное поле",
               validate: (value) => {
-                const reg = /^\+?[1-9][0-9]{7,14}$/;
+                const reg = /^\+?[1-9][0-9]{10,14}$/;
                 if (reg.test(value)) return true;
                 return "Неправильно введен номер";
               },

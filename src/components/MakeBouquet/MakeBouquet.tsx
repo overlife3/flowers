@@ -28,6 +28,7 @@ function MakeBouquet() {
     register,
     formState: { errors, isValid, isSubmitted },
     handleSubmit,
+    reset,
   } = useForm<FormState>({
     defaultValues: {
       name: "",
@@ -52,6 +53,9 @@ function MakeBouquet() {
       method: "POST",
       body: createMakeFormData(data),
     })
+      .then(() => {
+        reset();
+      })
       .catch((err) => {
         console.error(err);
         setError(err);
@@ -82,7 +86,7 @@ function MakeBouquet() {
             rules={{
               required: "Обязательное поле",
               validate: (value) => {
-                const reg = /^\+?[1-9][0-9]{7,14}$/;
+                const reg = /^\+?[1-9][0-9]{10,14}$/;
                 if (reg.test(value)) return true;
                 return "Неправильно введен номер";
               },

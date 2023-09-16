@@ -32,8 +32,10 @@ function PopupWrapper({ onClose, isOpened, children }: Props) {
 
   return (
     <div className={style.container}>
-      <div className={style.body} ref={bodyRef}>
-        {children}
+      <div className={style.body}>
+        <div className={style.content} ref={bodyRef}>
+          {children}
+        </div>
       </div>
     </div>
   );
