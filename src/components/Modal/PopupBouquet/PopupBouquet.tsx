@@ -30,7 +30,8 @@ function PopupBouquet({ onClose, isOpened, item }: Props) {
 
   const handleOrder = () => {
     dispatch(actions.addBouquetOrder(item));
-    dispatch(actionsBasketModal.setIsOpened(true));
+    // dispatch(actionsBasketModal.setIsOpened(true));
+    navigate("/basket");
   };
 
   if (!isOpened) return null;

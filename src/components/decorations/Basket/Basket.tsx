@@ -13,14 +13,15 @@ import { actions } from "../../../redux/reducers/basketModal";
 type Props = {};
 
 function Basket({}: Props) {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const bouquetsOrder = useAppSelector((store) => store.basket.bouquets_order);
   const isOpened = useAppSelector((store) => store.basketModal.isOpened);
   let count = Object.keys(bouquetsOrder).length;
 
   const handleClick = () => {
-    dispatch(actions.setIsOpened(true));
-    // navigate("/basket");
+    // dispatch(actions.setIsOpened(true));
+    navigate("/basket");
   };
 
   return (
@@ -29,14 +30,14 @@ function Basket({}: Props) {
         <SvgSelector name="basket" />
         {count !== 0 && <span className={style.order_count}>{count}</span>}
       </div>
-      {isOpened && (
+      {/* {isOpened && (
         <PopupWrapper
           onClose={() => dispatch(actions.setIsOpened(false))}
           isOpened={isOpened}
         >
           <OrderContainer />
         </PopupWrapper>
-      )}
+      )} */}
     </>
   );
 }
