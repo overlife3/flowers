@@ -9,6 +9,7 @@ import { Bouquet } from "../../../types/types";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import { useDispatch } from "react-redux";
 import { actions } from "../../../redux/reducers/basket";
+import { actions as actionsBasketModal } from "../../../redux/reducers/basketModal";
 import { useNavigate } from "react-router-dom";
 type Props = {
   item: Bouquet;
@@ -29,7 +30,7 @@ function PopupBouquet({ onClose, isOpened, item }: Props) {
 
   const handleOrder = () => {
     dispatch(actions.addBouquetOrder(item));
-    navigate("/basket");
+    dispatch(actionsBasketModal.setIsOpened(true));
   };
 
   if (!isOpened) return null;
@@ -39,7 +40,7 @@ function PopupBouquet({ onClose, isOpened, item }: Props) {
       {/* <div style={{ height: "580px" }}> */}
       <div className={style.body}>
         <button className={style.close} onClick={onClose}>
-          <SvgSelector name="cross" />
+          <SvgSelector name="cross" cn={style.svg} />
         </button>
         <div className={style.content}>
           <div className={style.images}>

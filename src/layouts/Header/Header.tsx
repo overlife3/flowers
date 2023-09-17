@@ -54,7 +54,10 @@ const Header = () => {
             <a onClick={scrollToMaster}>Ваш мастер</a>
           </div>
           <div className={style.contacts}>
-            <a className={style.svg}>
+            <a
+              className={style.svg}
+              href="https://instagram.com/podarok_buket_kanash?igshid=MzMyNGUyNmU2YQ=="
+            >
               <SvgSelector name="inst" />
             </a>
             <a
@@ -63,7 +66,7 @@ const Header = () => {
             >
               <SvgSelector name="whats" />
             </a>
-            <a className={style.svg}>
+            <a className={style.svg} href="https://vk.com/pogarok_buket_kanash">
               <SvgSelector name="vk" />
             </a>
             <span className={style.phone}>+7 (965) 689-69-90</span>

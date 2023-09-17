@@ -43,8 +43,11 @@
 }
 
 .plus {
-  transform: rotate(45deg);
+  .svg {
+    border-radius: 50%;
+  }
   svg {
+    transform: rotate(45deg);
     fill: var(--gray-color);
     width: 6px;
     height: 6px;
@@ -53,7 +56,7 @@
     }
   }
   &:active {
-    transform: scale(0.9) rotate(45deg);
+    transform: scale(0.9);
   }
 }
 .value {

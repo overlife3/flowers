@@ -19,7 +19,7 @@
   flex-shrink: 0;
   flex-grow: 0;
   width: 550px;
-  height: fit-content;
+
   background-color: #bf5730;
   padding: 45px;
   color: white;
@@ -73,6 +73,9 @@
 }
 
 @media (max-width: 1280px) {
+  .content {
+    justify-content: center;
+  }
   .text {
     width: 450px;
   }
@@ -118,8 +121,11 @@
     width: 600px;
     box-sizing: border-box;
   }
-  .big_photo {
+
+  .images {
     width: 600px;
+  }
+  .big_photo {
     height: auto;
   }
 }
@@ -135,7 +141,7 @@
     padding: 30px;
   }
 
-  .big_photo {
+  .images {
     width: 450px;
   }
 }
@@ -151,9 +157,6 @@
       "A"
       "C"
       "B";
-  }
-
-  .big_photo {
     width: 290px;
   }
 }

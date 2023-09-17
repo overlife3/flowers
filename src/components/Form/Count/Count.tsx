@@ -55,7 +55,7 @@ function Count({ initialValue, maxValue, onInc, onDec }: Props) {
       </span>
       <p className={style.value}>{count}</p>
       <span className={plusCn} onClick={increment}>
-        <SvgSelector name="cross" />
+        <SvgSelector name="cross" cn={style.svg} />
       </span>
     </div>
   );

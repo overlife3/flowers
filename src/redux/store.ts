@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import basket from "./reducers/basket";
+import basketModal from "./reducers/basketModal";
 import bouquets from "./reducers/bouquets";
 import catalog from "./reducers/catalog";
 import user from "./reducers/user";
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   user: user,
   catalog: catalog,
   basket: basket,
+  basketModal: basketModal,
 });
 
 const store = configureStore({

@@ -1,4 +1,5 @@
 import React from "react";
+import ToBack from "../../components/ToBack/ToBack";
 import "./style.css";
 function Polytics() {
   return (
@@ -12,6 +13,7 @@ function Polytics() {
             <div id="inputResult">
               <div className="row mb-4">
                 <div className="col">
+                  <ToBack to="/" />
                   <h4>
                     <strong>
                       Политика в&nbsp;отношении обработки персональных данных
