@@ -62,7 +62,7 @@ const Header = () => {
             </a>
             <a
               className={style.svg}
-              href="https://wa.me/79656896990?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%F0%9F%91%8B%20"
+              href="https://wa.me/79656896990?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C"
             >
               <SvgSelector name="whats" />
             </a>
