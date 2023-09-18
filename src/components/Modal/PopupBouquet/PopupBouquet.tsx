@@ -15,9 +15,10 @@ type Props = {
   item: Bouquet;
   onClose: () => void;
   isOpened: boolean;
+  buttonDisabled?: boolean;
 };
 
-function PopupBouquet({ onClose, isOpened, item }: Props) {
+function PopupBouquet({ onClose, isOpened, item, buttonDisabled }: Props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const bouquetOrders = useAppSelector((store) => store.basket.bouquets_order);
@@ -57,7 +58,7 @@ function PopupBouquet({ onClose, isOpened, item }: Props) {
               <button
                 className={style.buy}
                 onClick={handleOrder}
-                disabled={disabledButton}
+                disabled={disabledButton || buttonDisabled}
               >
                 Заказать
               </button>

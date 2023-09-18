@@ -196,6 +196,7 @@ function AddBouquetForm({
         <PopupBouquet
           isOpened={modalIsOpened}
           onClose={closeModal}
+          buttonDisabled
           item={{
             id: "",
             name: getValues("name"),
